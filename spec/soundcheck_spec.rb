@@ -1,3 +1,5 @@
+require File.expand_path(File.dirname(__FILE__) + '/../lib/soundcheck')
+
 CURRENT_PWD   = Dir.pwd
 FIXTURES_ROOT = File.expand_path(File.dirname(__FILE__) + '/fixtures')
 

@@ -4,7 +4,7 @@
 # Otherwise, it'll be run directly with whatever `rspec` executable is on the
 # path.
 
-class SmartTestRunner
+class Soundcheck
   def self.command_to_run(path = nil)
     path = "spec" unless path
     
