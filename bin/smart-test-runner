@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'smart-test-runner'
+puts "Command: " + SmartTestRunner.command_to_run(ARGV[0]).inspect
