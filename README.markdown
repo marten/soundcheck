@@ -1,8 +1,8 @@
 A smarter way to run your tests
 ===============================
 
-This gem started as a Ruby version of 'script/test' from (Destroy All Software's
-screencast number 10)[1].
+This gem started as a Ruby version of 'script/test' from [Destroy All Software's
+screencast number 10](http://destroyallsoftware.com/screencasts/catalog/fast-tests-with-and-without-rails).
 
 The basic idea is that sometimes it's not necessary to run rspec through bundler,
 and it's possible to save a whole bunch of time off your test runs if it isn't. This script
@@ -11,8 +11,6 @@ whether you reference `spec_helper`. For Rails applications, this is reasonable,
 you require that file, you'll probably need all of Rails loaded. If you don't (as you can
 often do when running a spec for something you put in `Rails.root.join("lib")`), it'll execute
 "rspec $0", otherwise it'll execute "bundle exec rspec $0".
-
-  [1] http://destroyallsoftware.com/screencasts/catalog/fast-tests-with-and-without-rails
 
 ## Contributing to smart-test-runner
  
