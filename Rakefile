@@ -14,13 +14,14 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "smart-test-runner"
-  gem.homepage = "http://github.com/marten/smart-test-runner"
+  gem.name = "soundcheck"
+  gem.homepage = "http://github.com/marten/soundcheck"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Automatically runs correct test command}
+  gem.description = %Q{Soundcheck tries to figure out what kind of project you're working on, what test file you're trying to run, and what the fastest way is to run that.}
   gem.email = "marten@veldthuis.com"
   gem.authors = ["Marten Veldthuis"]
+  gem.executables = ["soundcheck"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -43,7 +44,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "smart-test-runner #{version}"
+  rdoc.title = "soundcheck #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

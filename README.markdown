@@ -12,7 +12,7 @@ you require that file, you'll probably need all of Rails loaded. If you don't (a
 often do when running a spec for something you put in `Rails.root.join("lib")`), it'll execute
 "rspec $0", otherwise it'll execute "bundle exec rspec $0".
 
-## Contributing to smart-test-runner
+## Contributing to Soundcheck
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it

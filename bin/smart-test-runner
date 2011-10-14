@@ -1,4 +1,0 @@
-#!/usr/bin/env ruby
-
-require_relative '../lib/smart-test-runner'
-exec SmartTestRunner.command_to_run(ARGV[0])

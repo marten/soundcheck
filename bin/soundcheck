@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/soundcheck'
+exec SoundCheck.command_to_run(ARGV[0])
