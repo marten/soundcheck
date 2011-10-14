@@ -1,8 +1,8 @@
 A smarter way to run your tests
 ===============================
 
-This gem started as a Ruby version of 'script/test' from Destroy All Software's
-screencast number 10. This script is available [here][1].
+This gem started as a Ruby version of 'script/test' from (Destroy All Software's
+screencast number 10)[1].
 
 The basic idea is that sometimes it's not necessary to run rspec through bundler,
 and it's possible to save a whole bunch of time off your test runs if it isn't. This script
