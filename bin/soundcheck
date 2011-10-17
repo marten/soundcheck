@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'soundcheck'
-exec Soundcheck.command_to_run(ARGV[0])
+exec Soundcheck.new(ARGV[0]).command_to_run

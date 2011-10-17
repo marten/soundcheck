@@ -10,15 +10,15 @@ describe "Soundcheck" do
       after(:all)  { Dir.chdir(CURRENT_PWD) }
 
       it "should return 'bundle exec rspec spec' when run with no arguments" do
-        Soundcheck.command_to_run().should == "bundle exec rspec spec"
+        Soundcheck.new().command_to_run.should == "bundle exec rspec spec"
       end
 
       it "should return 'bundle exec rspec spec/with_spec_helper_spec.rb'" do
-        Soundcheck.command_to_run('spec/with_spec_helper_spec.rb').should == "bundle exec rspec spec/with_spec_helper_spec.rb"
+        Soundcheck.new('spec/with_spec_helper_spec.rb').command_to_run.should == "bundle exec rspec spec/with_spec_helper_spec.rb"
       end
 
       it "should return 'rspec spec/without_spec_helper_spec.rb'" do
-        Soundcheck.command_to_run('spec/without_spec_helper_spec.rb').should == "rspec spec/without_spec_helper_spec.rb"
+        Soundcheck.new('spec/without_spec_helper_spec.rb').command_to_run.should == "rspec spec/without_spec_helper_spec.rb"
       end
 
       it "should not use bundler when no Gemfile exists"
