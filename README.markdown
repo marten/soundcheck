@@ -12,6 +12,10 @@ you require that file, you'll probably need all of Rails loaded. If you don't (a
 often do when running a spec for something you put in `Rails.root.join("lib")`), it'll execute
 "rspec $0", otherwise it'll execute "bundle exec rspec $0".
 
+## Is Soundcheck not working for your project?
+
+Feel free to submit a pull request that adds only a fixture and RSpec testcase which describes the situation in which it fails. If you can fix it yourself, then great, but I'll happily accept patches that add more project styles which Soundcheck currently can't handle.
+
 ## Contributing to Soundcheck
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
