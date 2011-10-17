@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "soundcheck"
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marten Veldthuis"]
-  s.date = "2011-10-14"
+  s.date = "2011-10-17"
   s.description = "Soundcheck tries to figure out what kind of project you're working on, what test file you're trying to run, and what the fastest way is to run that."
   s.email = "marten@veldthuis.com"
   s.executables = ["soundcheck"]
@@ -27,7 +27,11 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/soundcheck",
+    "features/soundcheck.feature",
+    "features/step_definitions/steps.rb",
     "lib/soundcheck.rb",
+    "soundcheck.gemspec",
+    "spec/fixtures/ruby/rspec/spec/spec_helper.rb",
     "spec/fixtures/ruby/rspec/spec/with_spec_helper_spec.rb",
     "spec/fixtures/ruby/rspec/spec/without_spec_helper_spec.rb",
     "spec/soundcheck_spec.rb"
@@ -45,15 +49,18 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<cucumber>, [">= 0"])
     else
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<cucumber>, [">= 0"])
     end
   else
     s.add_dependency(%q<rspec>, ["~> 2.3.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<cucumber>, [">= 0"])
   end
 end
 
