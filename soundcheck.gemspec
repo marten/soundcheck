@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "soundcheck"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marten Veldthuis"]
-  s.date = "2011-10-17"
+  s.date = "2011-10-28"
   s.description = "Soundcheck tries to figure out what kind of project you're working on, what test file you're trying to run, and what the fastest way is to run that."
   s.email = "marten@veldthuis.com"
   s.executables = ["soundcheck"]
@@ -29,11 +29,16 @@ Gem::Specification.new do |s|
     "bin/soundcheck",
     "features/soundcheck.feature",
     "features/step_definitions/steps.rb",
+    "fixtures/ruby-bundler-rspec/Gemfile",
+    "fixtures/ruby-bundler-rspec/Gemfile.lock",
+    "fixtures/ruby-bundler-rspec/spec/spec_helper.rb",
+    "fixtures/ruby-bundler-rspec/spec/with_spec_helper_spec.rb",
+    "fixtures/ruby-bundler-rspec/spec/without_spec_helper_spec.rb",
+    "fixtures/ruby-rspec/spec/spec_helper.rb",
+    "fixtures/ruby-rspec/spec/with_spec_helper_spec.rb",
+    "fixtures/ruby-rspec/spec/without_spec_helper_spec.rb",
     "lib/soundcheck.rb",
     "soundcheck.gemspec",
-    "spec/fixtures/ruby/rspec/spec/spec_helper.rb",
-    "spec/fixtures/ruby/rspec/spec/with_spec_helper_spec.rb",
-    "spec/fixtures/ruby/rspec/spec/without_spec_helper_spec.rb",
     "spec/soundcheck_spec.rb"
   ]
   s.homepage = "http://github.com/marten/soundcheck"
