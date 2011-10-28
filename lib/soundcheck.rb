@@ -2,7 +2,7 @@ class Soundcheck
   attr_accessor :path
 
   def initialize(path = "spec")
-    @path = path
+    @path = path || "spec"
   end
 
   def command_to_run
