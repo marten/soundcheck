@@ -3,6 +3,6 @@ Feature: Soundcheck
   I want to require as little as possible
 
   Scenario: Ruby and RSpec
-    Given the "ruby/rspec" fixture
+    Given the "ruby-bundler-rspec" fixture
     When I run soundcheck with "spec"
     Then it should have passed

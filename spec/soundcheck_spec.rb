@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../lib/soundcheck')
 
 CURRENT_PWD   = Dir.pwd
-FIXTURES_ROOT = File.expand_path(File.dirname(__FILE__) + '/fixtures')
+FIXTURES_ROOT = File.expand_path(File.dirname(__FILE__) + '/../fixtures')
 
 describe "Soundcheck" do
   context "for a ruby project" do

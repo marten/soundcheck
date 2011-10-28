@@ -1,7 +1,7 @@
 SOUNDCHECK_ROOT = File.expand_path(File.join(File.dirname(__FILE__), "..", ".."))
 
 Given /^the "([^"]*)" fixture$/ do |fixture_path|
-  Dir.chdir(File.join(SOUNDCHECK_ROOT, "spec", "fixtures", fixture_path))
+  Dir.chdir(File.join(SOUNDCHECK_ROOT, "fixtures", fixture_path))
 end
 
 When /^I run soundcheck with "([^"]*)"$/ do |spec_file|
