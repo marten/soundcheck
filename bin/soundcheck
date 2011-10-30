@@ -1,4 +1,18 @@
 #!/usr/bin/env ruby
-
+require 'optparse'
 require 'soundcheck'
-exec Soundcheck.new(ARGV[0]).command_to_run
+
+options = {}
+option_parser = OptionParser.new do |opts|
+  opts.banner = "Usage: soundcheck [options] [file or path]"
+
+  opts.on("--help", "Show this info") do |v|
+    puts opts
+    exit
+  end
+end
+
+option_parser.parse!(ARGV)
+cmd = Soundcheck.new(ARGV[0], options).command_to_run
+puts cmd
+exec cmd
