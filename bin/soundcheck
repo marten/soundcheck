@@ -6,6 +6,10 @@ options = {}
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage: soundcheck [options] [file or path]"
 
+  opts.on("--fast", "Run fast specs only") do |v|
+    options[:fast] = v
+  end
+
   opts.on("--help", "Show this info") do |v|
     puts opts
     exit

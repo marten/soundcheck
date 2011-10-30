@@ -1,21 +1,27 @@
 class Soundcheck
   attr_accessor :path
 
-  def initialize(path = "spec")
-    @path = path || "spec"
+  def initialize(path = "spec", options = {})
+    @options = options
+
+    if options[:fast]
+      @path = `grep -r -L 'spec_helper' #{path || "spec"} | grep '_spec.rb'`.strip.gsub("\n", " ")
+    else
+      @path = path || "spec"
+    end
   end
 
   def command_to_run
     if has_gemfile?
       if requires_spec_helper?
-        return "rspec #{@path}"
+        return "rspec --drb #{@path}"
       else
-        return "bundle exec rspec #{@path}"
+        return "bundle exec rspec --drb #{@path}"
       end
     end
 
     # Assume rspec
-    "rspec #{@path}"
+    "rspec --drb #{@path}"
   end
 
   def requires_spec_helper?
