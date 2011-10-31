@@ -1,2 +1,8 @@
 * Make --drb optional
 * Make option for --trace
+
+* Add support for Expresso (http://visionmedia.github.com/expresso/)
+  * Detect NodeJS projects by looking for ["package.json", "node_modules"]
+  * Call `expresso [file]`
+
+* Add support for Cucumber
