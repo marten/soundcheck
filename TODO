@@ -6,3 +6,13 @@
   * Call `expresso [file]`
 
 * Add support for Cucumber
+
+* Add support for Ruby Cutest:
+    [15:43:28] <ijbema> ik heb nog eentje ;)
+    [15:43:40] <ijbema> https://github.com/tribalvibes/ohm
+    [15:43:42] <ijbema> gebruikt Cutest
+    [15:43:55] <ijbema> https://github.com/djanowski/cutest
+    [15:44:03] <ijbema> kan je detecteren adhv de Rakefile
+    [15:44:17] <ijbema> daar staat dan een Cutest.run
+    [15:44:26] <ijbema> of je zou rake test een fallback kunnen maken evt
+    [15:44:36] <ijbema> nee, wacht, want je wil ook per file dit cutest kunnen doen natuurlijk
