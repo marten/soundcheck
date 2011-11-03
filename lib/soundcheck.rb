@@ -9,19 +9,24 @@ class Soundcheck
     else
       @path = path || "spec"
     end
+
+    if @path.empty?
+      puts "Error: No specs to run."
+      exit 1
+    end
   end
 
   def command_to_run
     if has_gemfile?
       if requires_spec_helper?
-        return "rspec --drb #{@path}"
+        return "rspec #{@path}"
       else
-        return "bundle exec rspec --drb #{@path}"
+        return "bundle exec rspec #{@path}"
       end
     end
 
     # Assume rspec
-    "rspec --drb #{@path}"
+    "rspec #{@path}"
   end
 
   def requires_spec_helper?
