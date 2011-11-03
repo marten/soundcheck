@@ -21,7 +21,7 @@ class Soundcheck
     args   = []
     args  << "-b" if @options[:trace]
 
-    [prefix, "rspec", *args, @path].join(" ")
+    [prefix, "rspec", *args, @path].join(" ").strip
   end
 
   def requires_spec_helper?
