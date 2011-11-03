@@ -10,3 +10,9 @@ Feature: Soundcheck
     Given the "ruby-bundler-rspec" fixture
     When I run "soundcheck spec"
     Then it should have passed
+
+  Scenario: Ruby and RSpec backtraces
+    Given the "ruby-rspec-exception" fixture
+    When I run "soundcheck --trace spec"
+    Then I should see "1 failure"
+    And I should see "gems/rspec-core"

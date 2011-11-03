@@ -17,21 +17,16 @@ class Soundcheck
   end
 
   def command_to_run
-    if has_gemfile?
-      if requires_spec_helper?
-        return "rspec #{@path}"
-      else
-        return "bundle exec rspec #{@path}"
-      end
-    end
+    prefix = (has_gemfile? and requires_spec_helper?) ? "bundle exec" : ""
+    args   = []
+    args  << "-b" if @options[:trace]
 
-    # Assume rspec
-    "rspec #{@path}"
+    [prefix, "rspec", *args, @path].join(" ")
   end
 
   def requires_spec_helper?
     `grep -r 'spec_helper' #{@path}`
-    $?.exitstatus == 1 # no match; we have a stand-alone spec
+    $?.exitstatus == 0 # matched
   end
 
   def has_gemfile?
