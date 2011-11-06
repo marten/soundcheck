@@ -46,7 +46,7 @@ module Frameworks
     def filter(*args)
       filter_with(args, {
         :is_spec_file   => /_spec\.rb$/,
-        :is_in_spec_dir => /spec/,
+        :is_in_spec_dir => /^spec/,
         :is_dir         => lambda {|arg| project.has_dir?(arg) }
       })
     end
