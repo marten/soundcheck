@@ -6,6 +6,12 @@ Feature: Soundcheck
     When I run "soundcheck --help"
     Then I should see "Usage: soundcheck"
 
+  Scenario: Unknown languages
+    Given the "null-project" fixture
+    When I run "soundcheck"
+    Then I should see "Cannot detect the programming language for this project."
+    And it should have failed
+
   Scenario: Ruby and RSpec
     Given the "ruby-bundler-rspec" fixture
     When I run "soundcheck spec"

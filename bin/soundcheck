@@ -21,6 +21,11 @@ option_parser = OptionParser.new do |opts|
 end
 
 option_parser.parse!(ARGV)
-cmd = Soundcheck.new(ARGV[0], options).command_to_run
-puts cmd
-exec cmd
+begin
+  cmd = Soundcheck.new(ARGV[0], options).command_to_run
+  puts cmd
+  exec cmd
+rescue Project::UnknownLanguage
+  puts "Error: Cannot detect the programming language for this project."
+  exit 1
+end
