@@ -52,9 +52,13 @@ module Frameworks
         :is_dir         => lambda {|arg| project.has_dir?(arg) }
       })
     end
+    
+    def default_args
+      ["spec"]
+    end
 
     def command(*args)
-      args = (args.empty? ? ["spec"] : filter(*args))
+      args = (args.empty? ? default_args : filter(*args))
       return nil if args.empty?
 
       to_run = []
@@ -88,8 +92,12 @@ module Frameworks
       args.select { |arg| arg =~ /\.feature$/ }
     end
 
+    def default_args
+      ["features"]
+    end
+
     def command(*args)
-      args = (args.empty? ? ["features"] : filter(*args))
+      args = (args.empty? ? default_args : filter(*args))
       return nil if args.empty?
 
       "cucumber #{args.join(" ")}".strip
@@ -109,8 +117,12 @@ module Frameworks
       })
     end
 
+    def default_args
+      ["test/*.rb"]
+    end
+
     def command(*args)
-      args = (args.empty? ? ["test/*.rb"] : filter(*args))
+      args = (args.empty? ? default_args : filter(*args))
       return nil if args.empty?
 
       "cutest #{args.join(" ")}".strip
@@ -130,8 +142,12 @@ module Frameworks
       })
     end
 
+    def default_args
+      ["test/*"]
+    end
+
     def command(*args)
-      args = (args.empty? ? ["test/*"] : filter(*args))
+      args = (args.empty? ? default_args : filter(*args))
       return nil if args.empty?
 
       "expresso --include lib #{args.join(" ")}"
