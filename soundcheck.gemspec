@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "soundcheck"
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marten Veldthuis"]
@@ -41,12 +41,17 @@ Gem::Specification.new do |s|
     "fixtures/ruby-cucumber-rspec/spec/with_spec_helper_spec.rb",
     "fixtures/ruby-cucumber-rspec/spec/without_spec_helper_spec.rb",
     "fixtures/ruby-cucumber/features/cucumber.feature",
+    "fixtures/ruby-cutest/Rakefile",
+    "fixtures/ruby-cutest/test/foo.rb",
+    "fixtures/ruby-rspec-exception/Rakefile",
     "fixtures/ruby-rspec-exception/spec/spec_helper.rb",
     "fixtures/ruby-rspec-exception/spec/with_spec_helper_spec.rb",
     "fixtures/ruby-rspec-exception/spec/without_spec_helper_spec.rb",
+    "fixtures/ruby-rspec/Rakefile",
     "fixtures/ruby-rspec/spec/spec_helper.rb",
     "fixtures/ruby-rspec/spec/with_spec_helper_spec.rb",
     "fixtures/ruby-rspec/spec/without_spec_helper_spec.rb",
+    "fixtures/ruby-unknown-framework/Gemfile",
     "lib/soundcheck.rb",
     "lib/soundcheck/frameworks.rb",
     "lib/soundcheck/languages.rb",
@@ -56,6 +61,7 @@ Gem::Specification.new do |s|
     "spec/soundcheck/frameworks/cucumber_spec.rb",
     "spec/soundcheck/frameworks/expresso_spec.rb",
     "spec/soundcheck/frameworks/rspec_spec.rb",
+    "spec/soundcheck/frameworks/ruby_cutest_spec.rb",
     "spec/soundcheck/frameworks_spec.rb",
     "spec/soundcheck/languages_spec.rb",
     "spec/soundcheck/project_spec.rb",
