@@ -16,13 +16,10 @@ class Soundcheck
   end
 
   def command_to_run
-    commands = []
     project.frameworks.each do |framework|
       framework.options = options
       command = framework.command(*path)
-      commands << command if command
+      return command if command
     end
-
-    commands.first
   end
 end
