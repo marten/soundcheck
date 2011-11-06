@@ -1,27 +1,25 @@
+require 'soundcheck/logging'
+require 'soundcheck/project'
+
 class Soundcheck
+  attr_accessor :project
   attr_accessor :path
+  attr_accessor :options
 
   def initialize(path = "spec", options = {})
-    @options = options
-
-    if options[:fast]
-      @path = `grep -r -L 'spec_helper' #{path || "spec"} | grep '_spec.rb'`.strip.gsub("\n", " ")
-    else
-      @path = path || "spec"
-    end
-
-    if @path.empty?
-      puts "Error: No specs to run."
-      exit 1
-    end
+    self.project = Project.new(Dir.pwd)
+    self.path = path
+    self.options = options
   end
 
   def command_to_run
-    prefix = (has_gemfile? and requires_spec_helper?) ? "bundle exec" : ""
-    args   = []
-    args  << "-b" if @options[:trace]
-
-    [prefix, "rspec", *args, @path].join(" ").strip
+    commands = []
+    project.frameworks.each do |framework|
+      framework.options = options
+      command = framework.command(*path)
+      commands << command if command
+    end
+    commands.first
   end
 
   def requires_spec_helper?
