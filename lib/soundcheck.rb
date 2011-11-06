@@ -22,6 +22,7 @@ class Soundcheck
       command = framework.command(*path)
       commands << command if command
     end
+
     commands.first
   end
 end

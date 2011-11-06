@@ -9,7 +9,13 @@ Feature: Soundcheck
   Scenario: Unknown languages
     Given the "null-project" fixture
     When I run "soundcheck"
-    Then I should see "Cannot detect the programming language for this project."
+    Then I should see "Cannot detect the programming language for this project"
+    And it should have failed
+
+  Scenario: Unknown frameworks
+    Given the "ruby-unknown-framework" fixture
+    When I run "soundcheck"
+    Then I should see "Cannot detect the test framework for this project"
     And it should have failed
 
   Scenario: Ruby and RSpec

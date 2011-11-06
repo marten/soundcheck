@@ -19,8 +19,8 @@ describe Project do
   it "should ask the language to determine the frameworks used" do
     project = Project.new(stub)
     language = stub
-    language.should_receive(:frameworks).and_return([])
-    project.stub!(:language => language)
+    language.should_receive(:frameworks).and_return([stub.as_null_object])
+    project.stub(:language => language)
     project.frameworks
   end
 end

@@ -25,11 +25,16 @@ option_parser = OptionParser.new do |opts|
 end
 
 option_parser.parse!(ARGV)
+soundcheck = Soundcheck.new(ARGV[0], options)
+
 begin
-  cmd = Soundcheck.new(ARGV[0], options).command_to_run
+  cmd = soundcheck.command_to_run
   puts cmd
   exec cmd
 rescue Project::UnknownLanguage
   puts "Error: Cannot detect the programming language for this project."
+  exit 1
+rescue Project::UnknownFramework
+  puts "Error: Cannot detect the test framework for this project."
   exit 1
 end

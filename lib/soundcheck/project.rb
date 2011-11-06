@@ -3,6 +3,7 @@ require 'soundcheck/languages'
 
 class Project
   class UnknownLanguage < StandardError; end
+  class UnknownFramework < StandardError; end
 
   attr_accessor :root
 
@@ -54,6 +55,8 @@ class Project
       framework_class.new(self)
     end
     logger.debug "Detected your frameworks: #{detected_frameworks}"
+
+    raise UnknownFramework if detected_frameworks.empty?
     return detected_frameworks
   end
 
