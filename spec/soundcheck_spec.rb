@@ -1,7 +1,7 @@
+require_relative 'spec_helper'
 require File.expand_path(File.dirname(__FILE__) + '/../lib/soundcheck')
 
 CURRENT_PWD   = Dir.pwd
-FIXTURES_ROOT = File.expand_path(File.dirname(__FILE__) + '/../fixtures')
 
 def cmd_for(path = nil, options = {})
   Soundcheck.new(path, options).command_to_run
