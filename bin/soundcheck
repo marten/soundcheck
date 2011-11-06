@@ -14,6 +14,10 @@ option_parser = OptionParser.new do |opts|
     options[:trace] = true
   end
 
+  opts.on("-v", "--verbose", "Shows debug information about language/test-framework detection") do
+    options[:verbose] = true
+  end
+
   opts.on("--help", "Show this info") do
     puts opts
     exit

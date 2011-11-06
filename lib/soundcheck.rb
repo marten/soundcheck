@@ -10,6 +10,9 @@ class Soundcheck
     self.project = Project.new(Dir.pwd)
     self.path = path
     self.options = options
+
+    logger.level = Logger::DEBUG if options[:verbose]
+    logger.debug "Debug logging enabled."
   end
 
   def command_to_run
@@ -20,14 +23,5 @@ class Soundcheck
       commands << command if command
     end
     commands.first
-  end
-
-  def requires_spec_helper?
-    `grep -r 'spec_helper' #{@path}`
-    $?.exitstatus == 0 # matched
-  end
-
-  def has_gemfile?
-    File.exist?("Gemfile")
   end
 end

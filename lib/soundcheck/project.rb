@@ -3,6 +3,7 @@ require 'soundcheck/languages'
 
 class Project
   class UnknownLanguage < StandardError; end
+
   attr_accessor :root
 
   def initialize(root)
@@ -26,16 +27,30 @@ class Project
   end
 
   def language
-    return Languages::Ruby.new(self)   if has_file?("Gemfile")
-    return Languages::Ruby.new(self)   if has_file?("spec/*.rb")
-    return Languages::NodeJS.new(self) if has_file?("package.json")
-    raise UnknownLanguage
+    case
+    when has_file?("Gemfile")
+      logger.debug "You have a Gemfile, so I think this is Ruby."
+      return Languages::Ruby.new(self) 
+    when has_file?("Rakefile")
+      logger.debug "You have a Rakefile, so I think this is Ruby."
+      return Languages::Ruby.new(self) 
+    when has_file?("*.gemspec")
+      logger.debug "You have a gemspec, so I think this is Ruby."
+      return Languages::Ruby.new(self) 
+    when has_file?("package.json")
+      logger.debug "You have a package.json, so I think this is NodeJS."
+      return Languages::NodeJS.new(self) 
+    else
+      raise UnknownLanguage
+    end
   end
   
   def frameworks
-    language.frameworks.map do |framework_class|
+    detected_frameworks = language.frameworks.map do |framework_class|
       framework_class.new(self)
     end
+    logger.debug "Detected your frameworks: #{detected_frameworks}"
+    return detected_frameworks
   end
 
   def execute(command)
