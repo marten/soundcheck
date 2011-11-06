@@ -25,7 +25,7 @@ option_parser = OptionParser.new do |opts|
 end
 
 option_parser.parse!(ARGV)
-soundcheck = Soundcheck.new(ARGV[0], options)
+soundcheck = Soundcheck.new(ARGV, options)
 
 begin
   cmd = soundcheck.command_to_run

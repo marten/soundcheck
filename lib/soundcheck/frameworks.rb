@@ -1,4 +1,5 @@
 require 'active_support/concern'
+require 'soundcheck/logging'
 
 module Frameworks
   module Base
@@ -16,6 +17,7 @@ module Frameworks
 
     module InstanceMethods
       def filter_with(args, filters)
+        logger.debug "Filtering #{args.inspect}"
         args.select do |arg|
           filters.any? do |key, value|
             case value

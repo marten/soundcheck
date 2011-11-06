@@ -3,12 +3,12 @@ require 'soundcheck/project'
 
 class Soundcheck
   attr_accessor :project
-  attr_accessor :path
+  attr_accessor :paths
   attr_accessor :options
 
-  def initialize(path = "spec", options = {})
+  def initialize(paths, options = {})
     self.project = Project.new(Dir.pwd)
-    self.path = path
+    self.paths = paths
     self.options = options
 
     logger.level = Logger::DEBUG if options[:verbose]
@@ -18,7 +18,7 @@ class Soundcheck
   def command_to_run
     project.frameworks.each do |framework|
       framework.options = options
-      command = framework.command(*path)
+      command = framework.command(*paths)
       return command if command
     end
   end
