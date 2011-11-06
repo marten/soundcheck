@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'optparse'
+require 'pty'
 require 'soundcheck'
 
 options = {}
@@ -24,13 +25,27 @@ option_parser = OptionParser.new do |opts|
   end
 end
 
+# Option Parser will eat elements of ARGV that it recognizes
 option_parser.parse!(ARGV)
+
+# Assume that the rest of ARGV are filenames
 soundcheck = Soundcheck.new(ARGV, options)
 
 begin
-  cmd = soundcheck.command_to_run
-  puts cmd
-  exec cmd
+  soundcheck.commands_to_run.each do |cmd|
+    puts "[1mExecuting #{cmd}[0m\n\n"
+
+    PTY.spawn(cmd) do |read_stream, write_stream, pid|
+      begin
+        while chars = read_stream.read(1)
+          print chars
+        end
+      rescue Errno::EIO
+      end
+    end
+
+    puts "\n\n\n"
+  end
 rescue Project::UnknownLanguage
   puts "Error: Cannot detect the programming language for this project."
   exit 1

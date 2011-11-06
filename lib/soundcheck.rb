@@ -22,4 +22,13 @@ class Soundcheck
       return command if command
     end
   end
+
+  def commands_to_run
+    commands = project.frameworks.map do |framework|
+      framework.options = options
+      framework.command(*paths)
+    end.compact
+    logger.debug "Commands to run: #{commands.inspect}"
+    commands
+  end
 end
