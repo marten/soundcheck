@@ -26,6 +26,10 @@ class Project
     paths.any? { |path| has_file?(path) }
   end
 
+  def file_contents(filename)
+    File.read(File.expand_path(File.join(root, filename)))
+  end
+
   def language
     case
     when has_file?("Gemfile")

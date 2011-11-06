@@ -26,7 +26,7 @@ module Languages
     include Base
     
     def known_frameworks
-      [ Frameworks::RSpec, Frameworks::Cucumber ]
+      [ Frameworks::RSpec, Frameworks::Cucumber, Frameworks::RubyCutest ]
     end
   end
 
