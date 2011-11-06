@@ -108,7 +108,10 @@ module Frameworks
     end
 
     def command(*args)
-      "expresso --include lib #{filter(args).join(" ")}"
+      args = (args.empty? ? ["test/*"] : filter(*args))
+      return nil if args.empty?
+
+      "expresso --include lib #{args.join(" ")}"
     end
   end
 end
