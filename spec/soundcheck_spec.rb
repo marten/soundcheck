@@ -23,10 +23,6 @@ describe "Soundcheck" do
           cmd_for.should == "bundle exec rspec spec"
         end
 
-        it "should run only fast specs" do
-          cmd_for("spec", fast: true).should == "rspec spec/without_spec_helper_spec.rb"
-        end
-
         it "should return 'bundle exec rspec spec/with_spec_helper_spec.rb'" do
           cmd_for('spec/with_spec_helper_spec.rb').should == "bundle exec rspec spec/with_spec_helper_spec.rb"
         end
