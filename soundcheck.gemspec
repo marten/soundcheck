@@ -5,9 +5,9 @@
 
 Gem::Specification.new do |s|
   s.name = "soundcheck"
-  s.version = ""
+  s.version = "0.2.4.beta1"
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marten Veldthuis"]
   s.date = "2011-11-08"
   s.description = "Soundcheck tries to figure out what kind of project you're working on, what test file you're trying to run, and what the fastest way is to run that."
