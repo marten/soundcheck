@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "soundcheck"
-  s.version = "0.2.3"
+  s.version = ""
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marten Veldthuis"]
-  s.date = "2011-11-06"
+  s.date = "2011-11-08"
   s.description = "Soundcheck tries to figure out what kind of project you're working on, what test file you're trying to run, and what the fastest way is to run that."
   s.email = "marten@veldthuis.com"
   s.executables = ["soundcheck"]
