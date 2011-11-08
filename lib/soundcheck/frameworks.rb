@@ -100,7 +100,21 @@ module Frameworks
       args = (args.empty? ? default_args : filter(*args))
       return nil if args.empty?
 
-      "cucumber #{args.join(" ")}".strip
+      to_run = []
+      to_run << "bundle exec" if has_gemfile?
+      to_run << "cucumber #{args.join(" ")}".strip
+      to_run.join(" ")
+    end
+
+    private
+
+    def requires_spec_helper?(*args)
+      output, status = project.execute("grep -r 'spec_helper' #{args.join(" ")}")
+      status.exitstatus == 0 # matched
+    end
+
+    def has_gemfile?
+      project.has_file?("Gemfile")
     end
   end
 
