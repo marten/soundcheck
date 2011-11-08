@@ -32,6 +32,7 @@ option_parser.parse!(ARGV)
 soundcheck = Soundcheck.new(ARGV, options)
 
 begin
+  exit_status = 0
   soundcheck.commands_to_run.each do |cmd|
     puts "[1mExecuting #{cmd}[0m\n\n"
 
@@ -40,12 +41,16 @@ begin
         while chars = read_stream.read(1)
           print chars
         end
+        Process.wait(pid)
       rescue Errno::EIO
       end
     end
-
     puts "\n\n\n"
+
+    exit_status = $?.exitstatus if $?.exitstatus > exit_status
   end
+
+  exit exit_status
 rescue Project::UnknownLanguage
   puts "Error: Cannot detect the programming language for this project."
   exit 1
