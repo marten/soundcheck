@@ -1,0 +1,5 @@
+task :test do
+  # nothing
+end
+
+task :default => :test
