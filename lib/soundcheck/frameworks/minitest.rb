@@ -35,6 +35,10 @@ module Frameworks
 
     private
 
+    def has_test_dir?
+      project.has_dir?("test")
+    end
+
     def has_gemfile?
       project.has_file?("Gemfile")
     end
