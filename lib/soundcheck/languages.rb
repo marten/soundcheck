@@ -14,11 +14,9 @@ module Languages
       end
     end
 
-    module InstanceMethods
-      def frameworks
-        known_frameworks.select do |framework|
-          framework.new(project).present?
-        end
+    def frameworks
+      known_frameworks.select do |framework|
+        framework.new(project).present?
       end
     end
   end

@@ -16,26 +16,24 @@ module Frameworks
       end
     end
 
-    module InstanceMethods
-      def filter_with(args, filters)
-        logger.debug "Filtering #{args.inspect}"
-        args.select do |arg|
-          filters.any? do |key, value|
-            case value
-            when Regexp
-              arg =~ value
-            when Proc
-              value.call(arg)
-            else
-              raise "Unknown filter type for #{value}"
-            end
+    def filter_with(args, filters)
+      logger.debug "Filtering #{args.inspect}"
+      args.select do |arg|
+        filters.any? do |key, value|
+          case value
+          when Regexp
+            arg =~ value
+          when Proc
+            value.call(arg)
+          else
+            raise "Unknown filter type for #{value}"
           end
         end
       end
+    end
 
-      def to_s
-        self.class.name.split("::").last
-      end
+    def to_s
+      self.class.name.split("::").last
     end
   end
 end
