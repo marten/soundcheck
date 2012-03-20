@@ -33,12 +33,12 @@ describe "Frameworks" do
     it "should not use bundler when not needed" do
       project.stub!(:root => fixture("ruby-bundler-rspec"))
       cmd = framework.command("spec/without_spec_helper_spec.rb")
-      cmd.should == "rspec spec/without_spec_helper_spec.rb"
+      cmd.should == "rspec --format=doc spec/without_spec_helper_spec.rb"
     end
 
     it "should show backtraces when requested" do
       framework.options[:trace] = true
-      framework.command("spec/a_spec.rb").should == "rspec -b spec/a_spec.rb"
+      framework.command("spec/a_spec.rb").should == "rspec -b --format=doc spec/a_spec.rb"
     end
 
     it "should only run fast specs when requested" do pending
@@ -59,7 +59,7 @@ describe "Frameworks" do
 
     it "should filter invalid non-spec args" do
       cmd = framework.command("spec/a_spec.rb", "features/a.feature")
-      cmd.should == "rspec spec/a_spec.rb"
+      cmd.should == "rspec --format=doc spec/a_spec.rb"
     end
   end
 end
