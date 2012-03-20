@@ -26,6 +26,7 @@ module Frameworks
       to_run << "bundle exec" if has_gemfile? and requires_spec_helper?(*args)
       to_run << "rspec"
       to_run << "-b" if options[:trace]
+      to_run << "--format=doc" if args.size < 2 and args != default_args
       to_run << args.join(" ")
       to_run.join(" ").strip
     end
