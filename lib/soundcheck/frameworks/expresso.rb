@@ -20,7 +20,10 @@ module Frameworks
       args = (args.empty? ? default_args : filter(*args))
       return nil if args.empty?
 
-      "expresso --include lib #{args.join(" ")}"
+      local_expresso = "node_modules/expresso/bin/expresso"
+      expresso_bin = project.has_file?(local_expresso) ? local_expresso : "expresso"
+
+      "#{expresso_bin} --include lib #{args.join(" ")}"
     end
   end
 end
