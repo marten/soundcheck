@@ -33,16 +33,15 @@ function! RunTests(filename)
 " Write the file and run tests for the given filename
     :w
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    if match(a:filename, '\.feature$') != -1
-        exec ":!bundle exec cucumber " . a:filename
-    else
-        exec ":!soundcheck " . a:filename
-        "call Send_to_Tmux("soundcheck " . a:filename . "\n")
-    end
+    " For terminal Vim:
+    exec ":!soundcheck " . a:filename
+    
+    " For graphical Vim:
+    "call Send_to_Tmux("soundcheck " . a:filename . "\n")
 endfunction
 
 function! SetTestFile()
-" Set the spec file that tests will be run for.
+    " Set the spec file that tests will be run for.
     let t:grb_test_file=@%
 endfunction
 
@@ -53,7 +52,7 @@ function! RunTestFile(...)
         let command_suffix = ""
     endif
 
-" Run the tests for the previously-marked file.
+    " Run the tests for the previously-marked file.
     let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
     if in_test_file
         call SetTestFile()
