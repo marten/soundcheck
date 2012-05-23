@@ -10,6 +10,19 @@ $filename`, and soundcheck will figure out how to run that test.
 
 Soundcheck will also try to run your tests as fast as possible.
 
+## Usage
+
+```
+soundcheck
+=> runs all tests it can find
+
+soundcheck spec
+=> runs rspec tests
+
+soundcheck --fast spec
+=> runs only rspec tests that don't require spec_helper
+```
+
 ## Is Soundcheck not working for your project?
 
 Feel free to submit a pull request that adds only a fixture and RSpec testcase
