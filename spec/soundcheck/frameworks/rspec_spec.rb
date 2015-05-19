@@ -12,7 +12,7 @@ describe "Frameworks" do
       project.stub!(:root => fixture("ruby-rspec"))
       framework.present?.should be_true
     end
-    
+
     it "should not find when not there" do
       framework.present?.should be_false
     end
@@ -30,10 +30,9 @@ describe "Frameworks" do
       framework.command.should == "bundle exec rspec spec"
     end
 
-    it "should not use bundler when not needed" do
-      project.stub!(:root => fixture("ruby-bundler-rspec"))
-      cmd = framework.command("spec/without_spec_helper_spec.rb")
-      cmd.should == "rspec --format=doc spec/without_spec_helper_spec.rb"
+    it "should use binstub when exists" do
+      project.stub!(:root => fixture("ruby-bundler-binstub-rspec"))
+      framework.command.should == "bin/rspec spec"
     end
 
     it "should show backtraces when requested" do
@@ -44,7 +43,7 @@ describe "Frameworks" do
     it "should only run fast specs when requested" do pending
       project.stub!(:root => fixture("ruby-bundler-rspec"))
       framework.options[:fast] = true
-     
+
       # Old implementation:
       #
       # if options[:fast]
