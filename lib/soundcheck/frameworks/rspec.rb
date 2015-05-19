@@ -42,11 +42,6 @@ module Frameworks
       end
     end
 
-    def requires_spec_helper?(*args)
-      output, status = project.execute("grep -r 'spec_helper' #{args.join(" ")}")
-      status.exitstatus == 0 # matched
-    end
-
     def has_binstub?
       project.has_file?('bin/rspec')
     end
